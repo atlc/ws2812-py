@@ -8,3 +8,4 @@ pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.3, bpp=4, auto_wr
                            pixel_order=(1, 0, 2, 3))
 
 pixels.fill((239,108,0,0))
+pixels.show()
