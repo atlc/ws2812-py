@@ -13,8 +13,6 @@ PURPLE = (142, 36, 170)
 front = neopixel.NeoPixel(FRONT_PIN, COUNT, brightness=BRIGHTNESS, auto_write=False, pixel_order=(1,0,2,3))
 rear = neopixel.NeoPixel(REAR_PIN, COUNT)
 
-front.fill(0,0,0)
-
 def init():
     for x in range(0, COUNT):
         front[x] = (239, 108, 0) if x % 2 == 0 else (142, 36, 170)
