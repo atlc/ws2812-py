@@ -6,5 +6,10 @@ num_pixels = 300
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.1, bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
-pixels.fill((239,108,0))
+ORANGE = (239, 108, 0)
+PURPLE = (142, 36, 170)
+
+for i in range(0,num_pixels):
+    pixels[i] = ORANGE if i % 2 == 0 else PURPLE
+
 pixels.show()
