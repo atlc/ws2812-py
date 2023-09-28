@@ -4,12 +4,13 @@ import time
 
 pixel_pin = board.D18
 num_pixels = 600
+zero = 50
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.75,
                            bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
 ORANGE = (160, 20, 0)
-PURPLE = (50, 0, 30)
+PURPLE = (20, 0, 20)
 GREEN = (15, 100, 15)
 
 
@@ -33,12 +34,12 @@ def static_tricolor():
 
 
 def moving_dual_color():
-    for i in range(0, num_pixels):
+    for i in range(zero, num_pixels):
         pixels[i] = ORANGE if i < num_pixels / 2 else PURPLE
     pixels.show()
 
     is_purple = False
-    offset = 0
+    offset = zero
     run_count = 0
 
     while (offset < num_pixels):
@@ -48,7 +49,7 @@ def moving_dual_color():
         time.sleep(0.005)
         if (offset+1 >= num_pixels):
             run_count += 1
-            offset = 0
+            offset = zero
             is_purple = not is_purple
 
 
