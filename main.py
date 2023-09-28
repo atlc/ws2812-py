@@ -8,7 +8,7 @@ num_pixels = 600
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.75,
                            bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
-ORANGE = (239, 40, 0)
+ORANGE = (180, 25, 0)
 PURPLE = (40, 0, 40)
 GREEN = (15, 100, 15)
 
