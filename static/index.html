@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lights Control Panel</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="flex justify-center">
+            <button
+                onclick="fetch('/off')"
+                class="m-2 rounded bg-gradient-to-r from-slate-600 to-slate-900 p-2 text-slate-200 hover:from-slate-900 hover:to-slate-600"
+            >
+                Off
+            </button>
+            <button
+                onclick="fetch('/constant/dual')"
+                class="m-2 rounded bg-gradient-to-r from-purple-500 to-orange-500 p-2 text-black hover:from-purple-600 hover:to-orange-600 hover:text-orange-300 hover:shadow-lg hover:shadow-purple-500"
+            >
+                Two color static
+            </button>
+            <button
+                onclick="fetch('/constant/tri')"
+                class="m-2 rounded bg-gradient-to-r from-purple-500 to-orange-500 p-2 text-green-300 shadow-lg shadow-green-800 hover:from-purple-600 hover:to-orange-600 hover:text-green-500 hover:shadow-green-700"
+            >
+                Three color static
+            </button>
+
+            <button
+                onclick="fetch('/moving/dual')"
+                class="m-2 rounded bg-gradient-to-r from-purple-500 to-orange-500 p-2 text-black shadow-lg shadow-orange-500 hover:from-orange-600 hover:to-purple-600 hover:text-orange-300 hover:shadow-lg hover:shadow-purple-500"
+            >
+                Two color dynamic
+            </button>
+        </div>
+    </body>
+</html>

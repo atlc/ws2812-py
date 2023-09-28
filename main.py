@@ -1,56 +1,33 @@
-import board
-import neopixel
-import time
+from flask import Flask, send_from_directory
+import lights
 
-pixel_pin = board.D18
-num_pixels = 600
-zero = 180
-
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.75,
-                           bpp=3, auto_write=False, pixel_order=neopixel.GRB)
-
-ORANGE = (160, 20, 0)
-PURPLE = (20, 0, 40)
-GREEN = (15, 100, 15)
+app = Flask(__name__)
 
 
-def static_tricolor():
-    color_cycle = 1
-
-    def get_color_cycle():
-        if (color_cycle % 3 == 0):
-            return ORANGE
-        if (color_cycle % 3 == 1):
-            return PURPLE
-        if (color_cycle % 3 == 2):
-            return GREEN
-
-    for i in range(0, num_pixels):
-        if (i % 4 == 0):
-            color_cycle += 1
-        pixels[i] = get_color_cycle()
-
-    pixels.show()
+@app.route('/')
+def homepage():
+    return send_from_directory('static', 'index.html')
 
 
-def moving_dual_color():
-    for i in range(zero, num_pixels):
-        pixels[i] = ORANGE if i < num_pixels / 2 else PURPLE
-    pixels.show()
-
-    is_purple = False
-    offset = zero
-    run_count = 0
-
-    while (offset < num_pixels):
-        pixels[offset] = ORANGE if is_purple else PURPLE
-        pixels.show()
-        offset += 1
-        time.sleep(0.005)
-        if (offset+1 >= num_pixels):
-            run_count += 1
-            offset = zero
-            is_purple = not is_purple
+@app.route('/off')
+def off():
+    lights.off()
+    return "Done", 200
 
 
-moving_dual_color()
+@app.route('/constant/dual')
+def run_dual_constant():
+    lights.constant_dual_color()
+    return "Done", 200
+
+
+@app.route('/constant/tri')
+def run_tri_constant():
+    lights.constant_tri_color()
+    return "Done", 200
+
+
+@app.route('/moving/dual')
+def run_moving_dual():
+    lights.moving_dual_color()
+    return "Done", 200
