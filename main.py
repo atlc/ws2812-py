@@ -40,15 +40,10 @@ def moving_dual_color():
     offset = 0
     is_purple = True
 
-    while (True):
-        if (offset >= num_pixels): 
-            offset = 0
-            is_purple = not is_purple
-
-        for i in range(offset, num_pixels):
-            print(( i, offset, is_purple ))
-            pixels[i] = GREEN
-            offset += 1
+    for i in range(0, num_pixels):
+        print(( i, offset, is_purple ))
+        pixels[i] = GREEN
+        if (i+1 >= num_pixels): i = 0
         time.sleep(0.1)
 
 
