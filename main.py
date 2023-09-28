@@ -37,9 +37,10 @@ def moving_dual_color():
         pixels[i] = ORANGE if i < num_pixels / 2 else PURPLE
     pixels.show()
 
-    is_purple = True
+    is_purple = False
     offset = 0
     while (offset < num_pixels):
+        print(offset)
         pixels[offset] = ORANGE if is_purple else PURPLE
         pixels.show()
         time.sleep(0.05)
