@@ -8,7 +8,7 @@ pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5, bpp=3, auto_wr
 
 ORANGE = (239, 80, 0)
 PURPLE = (95, 0, 95)
-GREEN = (15, 15, 100)
+GREEN = (15, 100, 15)
 
 color_cycle = 1
 
