@@ -14,6 +14,6 @@ while (i<=num_pixels):
     pixels[i] = ORANGE if i % 2 == 0 else PURPLE
     pixels[i+1] = ORANGE if i % 2 == 0 else PURPLE
     pixels[i+2] = ORANGE if i % 2 == 0 else PURPLE
-    i += 2
+    i += 3
 
 pixels.show()
