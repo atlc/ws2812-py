@@ -8,8 +8,8 @@ num_pixels = 600
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.75,
                            bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
-ORANGE = (180, 25, 0)
-PURPLE = (40, 0, 40)
+ORANGE = (160, 20, 0)
+PURPLE = (30, 0, 30)
 GREEN = (15, 100, 15)
 
 
@@ -39,14 +39,15 @@ def moving_dual_color():
 
     is_purple = False
     offset = 0
+    run_count = 0
 
     while (offset < num_pixels):
         pixels[offset] = ORANGE if is_purple else PURPLE
         pixels.show()
         offset += 1
-        time.sleep(0.015)
+        time.sleep(0.005)
         if (offset+1 >= num_pixels):
-            print('\n\n\n\n\RESET HIT\n\n\n\n')
+            run_count += 1
             offset = 0
             is_purple = not is_purple
 
