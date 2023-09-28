@@ -44,6 +44,7 @@ def moving_dual_color():
         print(( i, offset, is_purple ))
         pixels[i] = GREEN
         if (i+1 >= num_pixels): i = 0
+        pixels.show()
         time.sleep(0.1)
 
 
