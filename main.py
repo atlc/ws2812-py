@@ -5,10 +5,10 @@ import time
 pixel_pin = board.D18
 num_pixels = 600
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.8,
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.75,
                            bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
-ORANGE = (239, 80, 0)
+ORANGE = (239, 40, 0)
 PURPLE = (50, 0, 50)
 GREEN = (15, 100, 15)
 
@@ -44,7 +44,7 @@ def moving_dual_color():
         pixels[offset] = ORANGE if is_purple else PURPLE
         pixels.show()
         offset += 1
-        time.sleep(0.025)
+        time.sleep(0.015)
         if (offset+1 >= num_pixels):
             print('\n\n\n\n\RESET HIT\n\n\n\n')
             offset = 0
