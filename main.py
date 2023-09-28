@@ -34,5 +34,6 @@ def static_tricolor():
 def moving_dual_color():
     for i in range(0, num_pixels):
         pixels[i] = ORANGE if i < num_pixels / 2 else PURPLE
+    pixels.show()
 
 moving_dual_color()
