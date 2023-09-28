@@ -5,6 +5,7 @@ import time
 pixel_pin = board.D18
 num_pixels = 600
 zero = 180  # 0 to show all of the strips, 70 to truncate wall lights, 180 to truncate wall and west side
+offset = zero  # used for cancelling movable events
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.75,
                            bpp=3, auto_write=False, pixel_order=neopixel.GRB)
@@ -15,6 +16,7 @@ GREEN = (15, 100, 15)
 
 
 def constant_dual_color():
+    off()
     color_cycle = 1
 
     for i in range(0, num_pixels):
@@ -26,6 +28,7 @@ def constant_dual_color():
 
 
 def constant_tri_color():
+    off()
     color_cycle = 1
 
     def get_color_cycle():
@@ -45,13 +48,14 @@ def constant_tri_color():
 
 
 def moving_dual_color():
+    off()
     for i in range(zero, num_pixels):
         pixels[i] = ORANGE if i < num_pixels / 2 else PURPLE
     pixels.show()
 
     is_purple = False
-    offset = zero
     run_count = 0
+    offset = zero  # reassigning it here so that subsequent invocations after turning off can operate
 
     while (offset < num_pixels):
         pixels[offset] = ORANGE if is_purple else PURPLE
@@ -65,6 +69,7 @@ def moving_dual_color():
 
 
 def off():
+    offset = num_pixels+1  # used to cancel otherwise infinite while loop
     for i in range(0, num_pixels):
         pixels[i] = (0, 0, 0)
     pixels.show()
