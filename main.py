@@ -1,5 +1,6 @@
 import board
 import neopixel
+import time
 
 pixel_pin = board.D18
 num_pixels = 300
@@ -35,5 +36,19 @@ def moving_dual_color():
     for i in range(0, num_pixels):
         pixels[i] = ORANGE if i < num_pixels / 2 else PURPLE
     pixels.show()
+
+    offset = 0
+    is_purple = True
+
+    while (True):
+        if (offset >= num_pixels): 
+            offset = 0
+            is_purple = not is_purple
+
+        for i in range(offset, num_pixels):
+            pixels[i] = ORANGE if is_purple else PURPLE
+            offset += 1
+        time.sleep(0.25)
+
 
 moving_dual_color()
