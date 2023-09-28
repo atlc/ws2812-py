@@ -4,10 +4,10 @@ import neopixel
 pixel_pin = board.D18
 num_pixels = 300
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.1, bpp=3, auto_write=False, pixel_order=neopixel.GRB)
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5, bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
 ORANGE = (239, 80, 0)
-PURPLE = (142, 0, 170)
+PURPLE = (95, 0, 95)
 
 is_orange = True
 
