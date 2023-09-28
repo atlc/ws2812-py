@@ -9,12 +9,10 @@ pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.1, bpp=3, auto_wr
 ORANGE = (239, 80, 0)
 PURPLE = (142, 0, 170)
 
-i = 0
-while (i<=num_pixels):
-    pixels[i] = ORANGE if i % 2 == 0 else PURPLE
-    pixels[i+1] = ORANGE if i % 2 == 0 else PURPLE
-    pixels[i+2] = ORANGE if i % 2 == 0 else PURPLE
-    if (i+3 <= num_pixels):
-        i+=3
+is_orange = True
+
+for i in range(0, num_pixels):
+    if (i % 3 == 2): is_orange = not is_orange
+    pixels[i] = ORANGE if is_orange else PURPLE
 
 pixels.show()
