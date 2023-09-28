@@ -8,11 +8,17 @@ pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5, bpp=3, auto_wr
 
 ORANGE = (239, 80, 0)
 PURPLE = (95, 0, 95)
+GREEN = (15, 15, 100)
 
-is_orange = True
+color_cycle = 1
+
+def get_color_cycle():
+    if (color_cycle % 3 == 0): return ORANGE
+    if (color_cycle % 3 == 1): return PURPLE
+    if (color_cycle % 3 == 2): return GREEN
 
 for i in range(0, num_pixels):
-    if (i % 6 == 0): is_orange = not is_orange
-    pixels[i] = ORANGE if is_orange else PURPLE
+    if (i % 4 == 0): color_cycle += 1
+    pixels[i] = get_color_cycle()
 
 pixels.show()
