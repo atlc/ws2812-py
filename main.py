@@ -46,9 +46,9 @@ def moving_dual_color():
             is_purple = not is_purple
 
         for i in range(offset, num_pixels):
-            pixels[i] = ORANGE if is_purple else PURPLE
+            pixels[i] = PURPLE if is_purple else ORANGE
             offset += 1
-        time.sleep(0.25)
+        time.sleep(0.1)
 
 
 moving_dual_color()
