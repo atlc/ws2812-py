@@ -5,7 +5,7 @@ import time
 pixel_pin = board.D18
 num_pixels = 300
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5,
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=1,
                            bpp=3, auto_write=False, pixel_order=neopixel.GRB)
 
 ORANGE = (239, 80, 0)
