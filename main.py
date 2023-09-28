@@ -12,7 +12,7 @@ PURPLE = (142, 0, 170)
 is_orange = True
 
 for i in range(0, num_pixels):
-    if (i % 3 == 2): is_orange = not is_orange
+    if (i % 6 == 0): is_orange = not is_orange
     pixels[i] = ORANGE if is_orange else PURPLE
 
 pixels.show()
