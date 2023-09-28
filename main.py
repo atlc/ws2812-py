@@ -41,11 +41,10 @@ def moving_dual_color():
     offset = 0
 
     while (offset < num_pixels):
-        print(offset)
         pixels[offset] = ORANGE if is_purple else PURPLE
         pixels.show()
         offset += 1
-        time.sleep(0.05)
+        time.sleep(0.025)
         if (offset+1 >= num_pixels):
             print('\n\n\n\n\RESET HIT\n\n\n\n')
             offset = 0
